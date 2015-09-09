@@ -36,23 +36,52 @@
                             </div> <!-- pull-right -->
                         </div> <!-- panel-heading -->
                         <div class="panel-body">
-                            <div id="dataTables-example" class="table-responsive">
-                                <table id="dataTables-example" class="table table-bordered table-hover table-striped">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="operatorsCurrentTasks">
                                     <thead>
                                         <td>
                                             Operator
                                         </td>
                                         <td>
-                                            Car    
+                                            Location
+                                        </td>
+                                        <td>
+                                            Car Make
+                                        </td>
+                                        <td>
+                                            License
                                         </td>
                                         <td>
                                             Owner
                                         </td>
                                     </thead>
-                                    <tr>
-
-                                    </tr>
+                                    <tbody>
+                                    <?php
+                                        foreach($operatorsCurrentTasks->Data as $row)
+                                        {
+                                            echo 
+                                            '<tr>
+                                                <td>
+                                                    '.$row->optrObjectId->lastName.'
+                                                </td>
+                                                <td>
+                                                    '.$row->locationString.'
+                                                </td>
+                                                <td>
+                                                    '.$row->carObjectId->make.'
+                                                </td>
+                                                <td>
+                                                    '.$row->carObjectId->license.'
+                                                </td>
+                                                <td>
+                                                    '.$row->carObjectId->ownerId->lastName.'
+                                                </td>
+                                            </tr>';
+                                        }
+                                    ?>
+                                    </tbody>
                                 </table>
+                               
                             </div> <!-- table-responsive -->
                         </div> <!-- /.panel-body -->
                     </div><!-- panel-default -->
@@ -61,8 +90,8 @@
                             <i class="fa fa-bar-chart-o fa-fw"></i> Available Operators
                         </div> <!-- /.panel panel-heading -->
                         <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-bordered table-hover table-striped" id="operatorsAvailable">
                                     <thead>
                                         <td>
                                             Operator
@@ -71,8 +100,25 @@
                                             Current Location
                                         </td>
                                     </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach($operatorsAvailable->results as $row)
+                                        {
+                                            echo 
+                                            '<tr>
+                                                <td>
+                                                    '.$row->userId->username.'
+                                                </td>
+                                                <td>
+                                                    '.$row->currentLocationString.'
+                                                </td>
+                                            </tr>';
+                                        }
+
+                                        ?>
+                                    </tbody>
                                 </table>
-                            </div> <!-- /.table-responsive -->
+                            </div> <!-- /.dataTable_wrapper -->
                         </div> <!-- /.panel-body -->
                     </div> <!-- /.panel .panel-default -->
 
@@ -97,6 +143,9 @@
                                             Owner
                                         </td>
                                     </thead>
+                                    <tbody>
+
+                                    </tbody>
                                 </table>
                             </div> <!-- /.table-responsive -->
                         </div><!-- panel-body -->
@@ -194,6 +243,6 @@
     <!-- /#wrapper -->
 <?php
 
-include APPPATH.'libraries/footer.php';
+include 'footer.php';
 
 ?>
