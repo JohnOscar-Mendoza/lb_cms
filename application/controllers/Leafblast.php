@@ -21,16 +21,18 @@ class Leafblast extends CI_Controller {
 	 */
 	public function index()
 	{
-
 		if(isset($_SESSION['user']))
 		{
 			date_default_timezone_set('America/Los_Angeles');
 			$this->load->model('dashboard_model');
+			$date = date('Y-m-d');
 			$dashboard = array();
-			//$dashboard['currentTasks'] = $this->dashboard_model->load();
+			
 			$dashboard['operatorsCurrentTasks'] = $this->dashboard_model->operatorsCurrentTasks();
 			$dashboard['operatorsAvailable'] = $this->dashboard_model->operatorsAvailable();
-			//die('<pre>'.print_r($dashboard, true));
+			$dashboard['bookingsForTheDay'] = $this->dashboard_model->bookingsForTheDay($date);
+			$dashboard['appointmentsTimeline'] = $this->dashboard_model->appointmentsTimeline();
+			
 			$this->load->view('index', $dashboard);	
 		}
 		else

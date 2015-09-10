@@ -31,6 +31,9 @@
         $('#operatorsAvailable').DataTable({
                 responsive: true
         });
+        $('#bookingsForTheDay').DataTable({
+                responsive: true
+        });
     });
     </script>
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->

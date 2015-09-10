@@ -1,5 +1,6 @@
 <?php
     include APPPATH.'libraries/header.php';
+    //die('<pre>'.print_r($appointmentsTimeline, true));
 ?>
         <div id="page-wrapper">
             <div class="row">
@@ -127,8 +128,8 @@
                             <i class="fa fa-bar-chart-o fa-fw"></i> Bookings for the Day
                         </div> <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-bordered table-hover table-striped" id="bookingsForTheDay">
                                     <thead>
                                         <td>
                                             Location
@@ -137,14 +138,40 @@
                                             Time
                                         </td>
                                         <td>
-                                            Car
+                                            Car Make
+                                        </td>
+                                        <td>
+                                            License
                                         </td>
                                         <td>
                                             Owner
                                         </td>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                        foreach($bookingsForTheDay->Data as $row)
+                                        {
+                                            echo 
+                                            '<tr>
+                                                <td>
+                                                    '.$row->locationString.'
+                                                </td>
+                                                <td>
+                                                    '.$row->apptDate.'
+                                                </td>
+                                                <td>
+                                                    '.$row->carObjectId->make.'
+                                                </td>
+                                                <td>
+                                                    '.$row->carObjectId->license.'
+                                                </td>
+                                                <td>
+                                                    '.$row->carObjectId->ownerId->lastName.', '.$row->carObjectId->ownerId->firstName.'
+                                                </td>
+                                            </tr>';
+                                        }
 
+                                        ?>
                                     </tbody>
                                 </table>
                             </div> <!-- /.table-responsive -->
@@ -155,37 +182,55 @@
                             <i class="fa fa-bar-chart-o fa-fw"></i> Timeline
                         </div>
                         <div class="panel-body">
+                            
                             <ul class="timeline">
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Appointments</h4>
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 10 hours ago</small>
-                                            </p>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p> User 1 Cancelled his carwash at 3:00PM </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-badge info"><i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Appointments</h4>
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago</small>
-                                            </p>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p> User 1 selected operetor 2 for his carwash appointment at 3:00PM </p>
-                                        </div>
-                                    </div>
-                                </li>
+                                <?php
+                                    $ctr = 1;
+                                    foreach($appointmentsTimeline->Data as $row)
+                                    {
+                                        if(($ctr % 2) == 0)
+                                        {
+                                            echo
+                                            '<li class="timeline-inverted">
+                                                <div class="timeline-badge info"><i class="fa fa-check"></i>
+                                                </div>
+                                                <div class="timeline-panel">
+                                                    <div class="timeline-heading">
+                                                        <h4 class="timeline-title">Appointments</h4>
+                                                        <p><small class="text-muted"><i class="fa fa-clock-o"></i> Sometime Ago</small>
+                                                        </p>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <p>'.$row->userObjectId->lastName.', '.$row->userObjectId->firstName.' '.$row->action.': #'.$row->orderId.'</p>
+                                                    </div>
+                                                </div>
+                                            </li>';
+                                        }
+                                        else
+                                        {
+                                            echo
+                                            '<li>
+                                                <div class="timeline-badge info"><i class="fa fa-check"></i>
+                                                </div>
+                                                <div class="timeline-panel">
+                                                    <div class="timeline-heading">
+                                                        <h4 class="timeline-title">Appointments</h4>
+                                                        <p><small class="text-muted"><i class="fa fa-clock-o"></i> Sometime Ago</small>
+                                                        </p>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <p>'.$row->userObjectId->lastName.', '.$row->userObjectId->firstName.' '.$row->action.': #'.$row->orderId.'</p>
+                                                    </div>
+                                                </div>
+                                            </li>';
+                                        }
+                                        $ctr++;
+                                    }
+
+                                ?>
                             </ul>
-                        </div>
+
+                        </div> <!-- /.panel-body -->
                     </div>
                 </div> <!-- col-lg-8 -->
 
