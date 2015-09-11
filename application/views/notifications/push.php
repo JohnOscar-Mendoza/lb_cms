@@ -157,6 +157,12 @@
                                         Ready to send your campaign?
                                     </div>
                                     <div class="panel-body">
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">
+                                                <span class="glyphicon glyphicon-send"></span> SEND CAMPAIGN
+                                            </button>
+                                        </div>
                                         <div class="alert alert-success">
                                             Campaign Send <a href="#" class="alert-link">Alert Link</a>.
                                         </div>
@@ -167,13 +173,7 @@
                                             Sending Failed <a href="#" class="alert-link">Alert Link</a>.
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">
-                                            <span class="glyphicon glyphicon-send"></span> SEND CAMPAIGN
-                                        </button>
-                                    </div>
                                 </div>
- 
                             </form>
                             </div>
                         </div>
