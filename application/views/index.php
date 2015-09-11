@@ -58,26 +58,33 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                        foreach($operatorsCurrentTasks->Data as $row)
+                                        if($operatorsCurrentTasks->Count == 0)
                                         {
-                                            echo 
-                                            '<tr>
-                                                <td>
-                                                    '.$row->optrObjectId->lastName.'
-                                                </td>
-                                                <td>
-                                                    '.$row->locationString.'
-                                                </td>
-                                                <td>
-                                                    '.$row->carObjectId->make.'
-                                                </td>
-                                                <td>
-                                                    '.$row->carObjectId->license.'
-                                                </td>
-                                                <td>
-                                                    '.$row->carObjectId->ownerId->lastName.'
-                                                </td>
-                                            </tr>';
+
+                                        }
+                                        else
+                                        {
+                                            foreach($operatorsCurrentTasks->Data as $row)
+                                            {
+                                                echo 
+                                                '<tr>
+                                                    <td>
+                                                        '.$row->optrObjectId->lastName.'
+                                                    </td>
+                                                    <td>
+                                                        '.$row->locationString.'
+                                                    </td>
+                                                    <td>
+                                                        '.$row->carObjectId->make.'
+                                                    </td>
+                                                    <td>
+                                                        '.$row->carObjectId->license.'
+                                                    </td>
+                                                    <td>
+                                                        '.$row->carObjectId->ownerId->lastName.'
+                                                    </td>
+                                                </tr>';
+                                            }
                                         }
                                     ?>
                                     </tbody>
@@ -103,17 +110,24 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        foreach($operatorsAvailable->results as $row)
+                                        if($operatorsAvailable->count == 0)
                                         {
-                                            echo 
-                                            '<tr>
-                                                <td>
-                                                    '.$row->userId->username.'
-                                                </td>
-                                                <td>
-                                                    '.$row->currentLocationString.'
-                                                </td>
-                                            </tr>';
+
+                                        }
+                                        else
+                                        {
+                                            foreach($operatorsAvailable->results as $row)
+                                            {
+                                                echo 
+                                                '<tr>
+                                                    <td>
+                                                        '.$row->userId->username.'
+                                                    </td>
+                                                    <td>
+                                                        '.$row->currentLocationString.'
+                                                    </td>
+                                                </tr>';
+                                            }
                                         }
 
                                         ?>
@@ -149,26 +163,33 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        foreach($bookingsForTheDay->Data as $row)
+                                        if($bookingsForTheDay->Count == 0)
                                         {
-                                            echo 
-                                            '<tr>
-                                                <td>
-                                                    '.$row->locationString.'
-                                                </td>
-                                                <td>
-                                                    '.$row->apptDate.'
-                                                </td>
-                                                <td>
-                                                    '.$row->carObjectId->make.'
-                                                </td>
-                                                <td>
-                                                    '.$row->carObjectId->license.'
-                                                </td>
-                                                <td>
-                                                    '.$row->carObjectId->ownerId->lastName.', '.$row->carObjectId->ownerId->firstName.'
-                                                </td>
-                                            </tr>';
+
+                                        }
+                                        else
+                                        {
+                                            foreach($bookingsForTheDay->Data as $row)
+                                            {
+                                                echo 
+                                                '<tr>
+                                                    <td>
+                                                        '.$row->locationString.'
+                                                    </td>
+                                                    <td>
+                                                        '.$row->apptDate.'
+                                                    </td>
+                                                    <td>
+                                                        '.$row->carObjectId->make.'
+                                                    </td>
+                                                    <td>
+                                                        '.$row->carObjectId->license.'
+                                                    </td>
+                                                    <td>
+                                                        '.$row->carObjectId->ownerId->lastName.', '.$row->carObjectId->ownerId->firstName.'
+                                                    </td>
+                                                </tr>';
+                                            }
                                         }
 
                                         ?>

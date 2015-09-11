@@ -31,6 +31,7 @@ class Leafblast extends CI_Controller {
 			$dashboard['operatorsCurrentTasks'] = $this->dashboard_model->operatorsCurrentTasks();
 			$dashboard['operatorsAvailable'] = $this->dashboard_model->operatorsAvailable();
 			$dashboard['bookingsForTheDay'] = $this->dashboard_model->bookingsForTheDay($date);
+			//die('<pre>'.print_r($dashboard['operatorsCurrentTasks']));
 			$dashboard['appointmentsTimeline'] = $this->dashboard_model->appointmentsTimeline();
 			
 			$this->load->view('index', $dashboard);	

@@ -5,13 +5,16 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url();?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    
     <!-- Metis Menu Plugin JavaScript -->
     <script src="<?php echo base_url();?>assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>assets/dist/js/sb-admin-2.js"></script>
-        <!-- Flot Charts JavaScript -->
+    <script src="<?php echo base_url();?>assets/dist/js/bootstrap-switch.js"></script>
+    <script src="<?php echo base_url();?>assets/dist/js/bootstrap-switch.min.js"></script>
+    
+    <!-- Flot Charts JavaScript -->
     <script src="<?php echo base_url();?>assets/bower_components/flot/excanvas.min.js"></script>
     <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.js"></script>
     <script src="<?php echo base_url();?>assets/bower_components/flot/jquery.flot.pie.js"></script>
@@ -28,6 +31,19 @@
         $('#dataTables-example').DataTable({
                 responsive: true
         });
+        $("[name='enableAb']").bootstrapSwitch({
+            onText: 'Yes',
+            offText: 'No'
+        });
+        $("[name='enableExpiry']").bootstrapSwitch({
+            onText: 'Yes',
+            offText: 'No'
+        });
+        $("[name='messageType']").bootstrapSwitch({
+            onText: 'Plain Text',
+            offText: 'JSON'
+        });
+
     });
     </script>
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->

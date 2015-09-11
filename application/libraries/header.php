@@ -22,6 +22,11 @@
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url();?>assets/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/dist/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/dist/css/bootstrap2/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+
 
     <!-- Morris Charts CSS -->
     <link href="<?php echo base_url();?>assets/bower_components/morrisjs/morris.css" rel="stylesheet">
@@ -281,6 +286,17 @@
                         <li>
                             <a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>/"><i class="glyphicon glyphicon-send"></i> Norifications <span class="fa arrow"></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url(); ?>/notifications/push">Push</a>
+                                </li>
+                                <li>
+                                    <a href="#per-operator">View All</a>
+                                </li>
+                            </ul>
+                        </li>                        
                         <!-- Financial Tables -->
                         <li>
                             <a href="#"><i class="fa fa-money fa-fw"></i> Financial Tables<span class="fa arrow"></a>
