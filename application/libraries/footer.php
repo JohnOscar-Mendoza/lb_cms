@@ -31,7 +31,7 @@
         $('#dataTables-example').DataTable({
                 responsive: true
         });
-        $("[name='enableAb']").bootstrapSwitch({
+        $(".YesNoSwitch").bootstrapSwitch({
             onText: 'Yes',
             offText: 'No'
         });
@@ -43,6 +43,7 @@
             onText: 'Plain Text',
             offText: 'JSON'
         });
+		
 
     });
     </script>
