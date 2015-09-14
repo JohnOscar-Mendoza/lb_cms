@@ -29,7 +29,7 @@ class Login_model extends CI_Model
 			//die($user->sessionToken);
 		}
 		catch (ParseException $error) {
-			return $data['error'] = array("message" => $error->getMessage());
+			return false;
 		}
 	}
 	public function getCurrentUser()

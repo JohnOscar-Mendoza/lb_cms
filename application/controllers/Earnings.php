@@ -20,6 +20,9 @@ class Earnings extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('earnings/total');
+		$this->load->model('earnings_model');
+		$results = $this->earnings_model->all();
+		die('<pre>'.print_r($results, true));
+		//$this->load->view('earnings/total');
 	}
 }
