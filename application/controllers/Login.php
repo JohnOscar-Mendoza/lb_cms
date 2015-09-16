@@ -63,6 +63,7 @@ class Login extends CI_Controller {
 				else
 				{
 					$_SESSION['user'] = $user;
+					//die('<pre>'.print_r($_SESSION, true));
 					date_default_timezone_set('America/Los_Angeles');
 					redirect(base_url().'index.php/leafblast', 'refresh');
 				}

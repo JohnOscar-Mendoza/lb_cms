@@ -1,14 +1,17 @@
 <?php
+require_once (APPPATH.'libraries/vendor/autoload.php');
+require_once (APPPATH.'libraries/Curl/Curl.php');
 
-require_once APPPATH.'libraries/vendor/autoload.php';
-
+use \Curl\Curl;
 class Earnings_model extends CI_Model
 {
-	public function all()
+	public function all($year)
 	{
-		$this->db->join('Orders','OrderDetails.orderId','inner');
-		$query = $this->db->get('OrderDetails');
-		return $query->result_array();
+		$curl = new Curl();
+		$curl->setOpt(CURLOPT_SSL_VERIFYPEER, false);
+		$curl->setOpt(CURLOPT_RETURNTRANSFER, true);
+		$curl->get('http://localhost/stripe/index.php/api/v1/earnings/index/'.$year);
+		return $curl->response;
 	}
 	
 }

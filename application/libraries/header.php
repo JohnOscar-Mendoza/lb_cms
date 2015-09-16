@@ -288,7 +288,7 @@
                             <a href="<?php echo base_url(); ?>index.php/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>/"><i class="glyphicon glyphicon-send"></i> Norifications <span class="fa arrow"></a>
+                            <a href="<?php echo base_url(); ?>/"><i class="glyphicon glyphicon-send"></i> Notifications <span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url(); ?>/notifications/push">Push</a>

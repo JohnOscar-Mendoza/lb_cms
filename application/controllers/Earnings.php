@@ -18,11 +18,12 @@ class Earnings extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function year($year)
 	{
 		$this->load->model('earnings_model');
-		$results = $this->earnings_model->all();
-		die('<pre>'.print_r($results, true));
-		//$this->load->view('earnings/total');
+		$results = array();
+		$results = $this->earnings_model->all($year);
+		//die('<pre>'.print_r($results, true));
+		$this->load->view('earnings/total', $results);
 	}
 }
